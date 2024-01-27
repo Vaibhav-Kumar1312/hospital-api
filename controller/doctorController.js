@@ -45,7 +45,7 @@ exports.login = async function (req, res) {
       status: "sucess",
       message: "Login sucessfull here is your token",
       data: {
-        token: jwt.sign(user.toJSON(), "hospitalAPI", {
+        token: jwt.sign(user.toJSON(), process.env.JWT_SECRET_KEY, {
           expiresIn: "1000000",
         }),
       },

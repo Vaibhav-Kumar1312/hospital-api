@@ -1,3 +1,4 @@
+require("dotenv").config();
 const passport = require("passport");
 const JWTStrategy = require("passport-jwt").Strategy;
 const ExtractJWT = require("passport-jwt").ExtractJwt;
@@ -6,7 +7,7 @@ const User = require("../model/user.js");
 
 let opts = {
   jwtFromRequest: ExtractJWT.fromAuthHeaderAsBearerToken(),
-  secretOrKey: "hospitalAPI",
+  secretOrKey: process.env.JWT_SECRET_KEY,
 };
 
 passport.use(
